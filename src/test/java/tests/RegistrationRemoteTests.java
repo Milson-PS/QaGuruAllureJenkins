@@ -24,7 +24,7 @@ public class RegistrationRemoteTests extends TestBase {
     @Test
     @Tag("demoqa")
     void fillFormTest() {
-        step("Fill form", () -> {
+        step("Открытие и заполнение всех полей формы", () -> {
             registrationPage.openPage()
                     .cleanBanner()
                     .setFirstName("Pavel")
@@ -42,7 +42,7 @@ public class RegistrationRemoteTests extends TestBase {
                     .submit();
 
         });
-        step("Verify results", () -> {
+        step("Проверка формы", () -> {
             registrationPage
                     .checkTableResponse("Student Name", "Pavel Milyukov")
                     .checkTableResponse("Student Email", "milyukov@yandex.ru")
@@ -56,5 +56,30 @@ public class RegistrationRemoteTests extends TestBase {
                     .checkTableResponse("State and City", "NCR Noida");
 
     });
+        step("Открытие и заполнение минимального количества полей формы", () -> {
+            registrationPage.openPage()
+                    .cleanBanner()
+                    .setFirstName("Pavel")
+                    .setLastName("Milyukov")
+                    .setUserEmail("milyukov@yandex.ru")
+                    .setGender("Male")
+                    .setNumber("0123456789")
+                    .setDateOfBirth("16", "January", "1993")
+                    .setHobbies("Sports")
+                    .setAddress("ул.Ленина")
+                    .submit();
+        });
+        step("Проверка формы", () -> {
+            registrationPage
+                    .checkTableResponse("Student Name", "Pavel Milyukov")
+                    .checkTableResponse("Student Email", "milyukov@yandex.ru")
+                    .checkTableResponse("Gender", "Male")
+                    .checkTableResponse("Mobile", "0123456789")
+                    .checkTableResponse("Date of Birth", "16 January,1993")
+                    .checkTableResponse("Hobbies", "Sports")
+                    .checkTableResponse("Address", "ул.Ленина");
+        });
+
+
     }
 }
