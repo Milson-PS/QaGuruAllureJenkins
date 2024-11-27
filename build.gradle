@@ -34,6 +34,7 @@ dependencies {
 }
 
 tasks.withType(Test) {
+    systemProperties(System.getProperties())
     useJUnitPlatform()
 
     testLogging {
@@ -44,14 +45,20 @@ tasks.withType(Test) {
     }
 }
 
-task simple_test(type: Test) {
+task regress_test(type: Test) {
     useJUnitPlatform {
-        includeTags("simple")
+        includeTags("regress")
     }
 }
 
 task demoqa_test(type: Test) {
     useJUnitPlatform {
         includeTags("demoqa")
+    }
+}
+
+task property_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("property")
     }
 }
