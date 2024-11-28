@@ -12,7 +12,7 @@ public class RegistrationRemoteTests extends TestBase {
 
 
     @Test
-    @Tag("demoqa")
+    @Tag("regress")
     void fillFormTest() {
         step("Открытие и заполнение всех полей формы", () -> {
             registrationPage.openPage()
@@ -71,6 +71,7 @@ public class RegistrationRemoteTests extends TestBase {
                     .checkTableResponse("Hobbies", "Sports")
                     .checkTableResponse("Address", "ул.Ленина");
         });
+
 
     }
 }
