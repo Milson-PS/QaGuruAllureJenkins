@@ -45,11 +45,9 @@ public class RegistrationRemoteTests extends TestBase {
                     .checkTableResponse("State and City", "NCR Noida");
 
         });
-    }
 
-        @Test
-        @Tag("demoqa")
-        void minFormTest() {
+
+
         step("Открытие и заполнение минимального количества полей формы", () -> {
             registrationPage.openPage()
                     .cleanBanner()
