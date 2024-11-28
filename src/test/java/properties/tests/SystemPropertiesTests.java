@@ -58,4 +58,3 @@ public class SystemPropertiesTests {
         // gradle hello_test -Dname='John Smith'
     }
 }
-}
