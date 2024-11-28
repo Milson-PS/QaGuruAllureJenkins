@@ -48,7 +48,7 @@ public class RegistrationRemoteTests extends TestBase {
     }
 
         @Test
-        @Tag("regress")
+        @Tag("demoqa")
         void minFormTest() {
         step("Открытие и заполнение минимального количества полей формы", () -> {
             registrationPage.openPage()
@@ -73,7 +73,6 @@ public class RegistrationRemoteTests extends TestBase {
                     .checkTableResponse("Hobbies", "Sports")
                     .checkTableResponse("Address", "ул.Ленина");
         });
-
 
     }
 }
