@@ -1,16 +1,14 @@
 package tests;
 
-import helpers.Attach;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
+
 import static io.qameta.allure.Allure.step;
 
 public class RegistrationRemoteTests extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
-
 
 
     @Test
@@ -32,7 +30,6 @@ public class RegistrationRemoteTests extends TestBase {
                     .setState("NCR")
                     .setCity("Noida")
                     .submit();
-
         });
         step("Проверка формы", () -> {
             registrationPage
@@ -47,7 +44,12 @@ public class RegistrationRemoteTests extends TestBase {
                     .checkTableResponse("Address", "ул.Ленина")
                     .checkTableResponse("State and City", "NCR Noida");
 
-    });
+        });
+    }
+
+        @Test
+        @Tag("regress")
+        void minFormTest() {
         step("Открытие и заполнение минимального количества полей формы", () -> {
             registrationPage.openPage()
                     .cleanBanner()
